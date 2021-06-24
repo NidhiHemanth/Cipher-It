@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.io.*;
+import DES.*;
 
 public class Input {
     public static void main(String[] args) {
@@ -80,7 +81,21 @@ public class Input {
     }
 
     static void split(String input) {
-        String string = Arrays.toString(input.split("(?<=\\G.{16})"));
-        System.out.println(string);
+        String input16[] = input.split("(?<=\\G.{16})");       
+        System.out.println(Arrays.toString(input16));   
+
+        String key = KeyGenerator.getKey(16);
+        System.out.println("Your key is : ");
+        System.out.println("\t" + key);
+
+        DES cipher = new DES();
+
+        System.out.println("Encryption:\n");
+        String encryptedText = cipher.encrypt(input16[0], key);
+        System.out.println("\nCipher Text: " + encryptedText.toUpperCase() + "\n");
+        
+        System.out.println("Decryption\n");
+        String decryptedText = cipher.decrypt(encryptedText, key);
+        System.out.println("\nPlain Text: " + decryptedText.toUpperCase());
     }
 }
