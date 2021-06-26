@@ -83,7 +83,16 @@ public class Input {
     static void split(String input) {
         // input is hexadecimal
 
-        String input16[] = input.split("(?<=\\G.{16})");       
+        String input16[] = input.split("(?<=\\G.{16})");   
+        int n = input16.length;    
+        if(input16[n-1].length() < 16) {
+            input16[n-1] = String.format("%-" + 16 + "s", input16[n-1]).replace(' ', '0');
+        }
+        
+        String finalStr[] = new String[input16.length];
+        String encryptedStr[] = new String[input16.length];
+        String decryptedStr[] = new String[input16.length];
+
         System.out.println(Arrays.toString(input16));   
 
         // key is generated in hexadecimal 
@@ -94,18 +103,24 @@ public class Input {
         DES cipher = new DES();
 
         System.out.println("Encryption:\n");
-        // encrypt() returns hexadecimal 
-        String encryptedText = cipher.encrypt(input16[0], key);
-        // hexadecimal converted to ascii
-        String text = HexEntries.hexToAscii(encryptedText);
-        System.out.println("\nCipher Text: " + text.toUpperCase() + "\n");
+        for(int i = 0; i < input16.length; i++) {
+            // encrypt() returns hexadecimal 
+            encryptedStr[i] = cipher.encrypt(input16[i], key);
+            // hexadecimal converted to ascii
+            finalStr[i] = HexEntries.hexToAscii(encryptedStr[i]);
+            // System.out.println("\nCipher Text: " + text.toUpperCase() + "\n");            
+        }
+        System.out.println("Encrypted text : " + String.join("", finalStr));
         
         System.out.println("Decryption\n");
-        // decrypt() takes hexadecimal argument
-        // returns hexadecimal
-        String decryptedText = cipher.decrypt(encryptedText, key);
-        text = HexEntries.hexToAscii(decryptedText);
-        System.out.println("\nPlain Text: " + text.toUpperCase());
+        for(int i = 0; i < encryptedStr.length; i++) {
+            // decrypt() takes hexadecimal argument
+            // returns hexadecimal
+            decryptedStr[i] = cipher.decrypt(encryptedStr[i], key);
+            finalStr[i] = HexEntries.hexToAscii(decryptedStr[i]);
+            // System.out.println("\nPlain Text: " + text.toUpperCase());
+        }
+        System.out.println("Decrypted text : " + String.join("", finalStr));
     }
 }
 

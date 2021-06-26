@@ -23,7 +23,7 @@ public class DES implements Cipher {
         temp = parse.permutation(constants.P, temp);
         // xor
         left = parse.xor(left, temp);
-        System.out.println("Round " + (num + 1) + " " + right.toUpperCase() + " " + left.toUpperCase() + " " + key.toUpperCase());
+        // System.out.println("Round " + (num + 1) + " " + right.toUpperCase() + " " + left.toUpperCase() + " " + key.toUpperCase());
 
         // swapper
         return right + left;
@@ -52,9 +52,9 @@ public class DES implements Cipher {
 
         // initial permutation
         plainText = parse.permutation(constants.IP, plainText);
-        System.out.println("After initial permutation: " + plainText.toUpperCase());
-        System.out.println("After splitting: L0=" + plainText.substring(0, 8).toUpperCase() + " R0="
-                + plainText.substring(8, 16).toUpperCase() + "\n");
+        // System.out.println("After initial permutation: " + plainText.toUpperCase());
+        // System.out.println("After splitting: L0=" + plainText.substring(0, 8).toUpperCase() + " R0="
+                // + plainText.substring(8, 16).toUpperCase() + "\n");
 
         // 16 rounds
         for (i = 0; i < 16; i++) {
@@ -76,9 +76,9 @@ public class DES implements Cipher {
 
         // initial permutation
         plainText = parse.permutation(constants.IP, plainText);
-        System.out.println("After initial permutation: " + plainText.toUpperCase());
-        System.out.println("After splitting: L0=" + plainText.substring(0, 8).toUpperCase() + " R0="
-                + plainText.substring(8, 16).toUpperCase() + "\n");
+        // System.out.println("After initial permutation: " + plainText.toUpperCase());
+        // System.out.println("After splitting: L0=" + plainText.substring(0, 8).toUpperCase() + " R0="
+                // + plainText.substring(8, 16).toUpperCase() + "\n");
 
         // 16-rounds
         for (i = 15; i > -1; i--) {
