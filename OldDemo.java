@@ -1,6 +1,6 @@
 import DES.*;
 
-public class Demo {
+public class OldDemo {
     public static void main(String[] args) {
         String text = "123456ABCD132536";
         String key = "AABB09182736CCDD";
