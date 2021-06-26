@@ -52,38 +52,41 @@ public class Input {
         System.out.println("\tThe input string is :");
         System.out.println(str);
 
-        System.out.println("Splitting into 16 character substrings:");
-        split(str);
+        String text = HexEntries.asciiToHex(str);
+
+        System.out.println("Splitting into 16 hexadecimal substrings:");
+        split(text);
     }
 
     static void FileInput(String fileName) {
         String str = "";
 
         try {
-
             FileReader input = new FileReader(fileName);
             int i;
             while ((i = input.read()) != -1)
                 str += (char) i;
             input.close();
-
         } catch (IOException e) {
-
             e.printStackTrace();
-
         }
 
         System.out.println("\tThe input string is :");
         System.out.println(str);
 
+        String text = HexEntries.asciiToHex(str);
+
         System.out.println("Splitting into 16 character substrings:");
-        split(str);
+        split(text);
     }
 
     static void split(String input) {
+        // input is hexadecimal
+
         String input16[] = input.split("(?<=\\G.{16})");       
         System.out.println(Arrays.toString(input16));   
 
+        // key is generated in hexadecimal 
         String key = KeyGenerator.getKey(16);
         System.out.println("Your key is : ");
         System.out.println("\t" + key);
@@ -91,11 +94,40 @@ public class Input {
         DES cipher = new DES();
 
         System.out.println("Encryption:\n");
+        // encrypt() returns hexadecimal 
         String encryptedText = cipher.encrypt(input16[0], key);
-        System.out.println("\nCipher Text: " + encryptedText.toUpperCase() + "\n");
+        // hexadecimal converted to ascii
+        String text = HexEntries.hexToAscii(encryptedText);
+        System.out.println("\nCipher Text: " + text.toUpperCase() + "\n");
         
         System.out.println("Decryption\n");
+        // decrypt() takes hexadecimal argument
+        // returns hexadecimal
         String decryptedText = cipher.decrypt(encryptedText, key);
-        System.out.println("\nPlain Text: " + decryptedText.toUpperCase());
+        text = HexEntries.hexToAscii(decryptedText);
+        System.out.println("\nPlain Text: " + text.toUpperCase());
     }
+}
+
+class HexEntries {
+    static String asciiToHex(String ascii) {
+        String hex = "";
+        for (int i = 0; i < ascii.length(); i++) {
+            char ch = ascii.charAt(i);
+            int in = (int)ch;
+            String part = Integer.toHexString(in);
+            hex += part;
+        }
+        return hex;
+    } 
+
+    static String hexToAscii(String hex) {
+        String ascii = "";
+         for (int i = 0; i < hex.length(); i += 2) {
+            String part = hex.substring(i, i + 2);
+            char ch = (char)Integer.parseInt(part, 16);
+            ascii = ascii + ch;
+        }
+       return ascii;  
+    } 
 }
