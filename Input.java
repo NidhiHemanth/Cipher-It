@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.io.FileWriter;
@@ -13,6 +12,7 @@ public class Input {
 
         String key = "";
         String myInput = "";
+        String text;
 
         Scanner sc = new Scanner(System.in);
 
@@ -72,9 +72,14 @@ public class Input {
                     break;
                 case 2:
                     // code for encrypting using Caesar cipher
+                    System.out.print("\nEnter the shift value: ");
+                    int shift = sc.nextInt();
+                    text = Caesar.encrypted(myInput, shift);
+                    System.out.println("The encrypted string: " + text);
+                    writeToFile(text);
                     break;
                 case 3:
-                    String text = HexEntries.asciiToHex(myInput);
+                    text = HexEntries.asciiToHex(myInput);
                     String input16[] = split(text);
                     text = DES.encrypted(input16);
                     System.out.println("The encrypted string (hexadecimal): " + text);
@@ -91,9 +96,13 @@ public class Input {
                     break;
                 case 2:
                     // code for decrypting using Substitution cipher
+                    System.out.print("\nEnter the shift value: ");
+                    int shift = sc.nextInt();
+                    text = Caesar.decrypted(myInput, shift);
+                    System.out.println("The decrypted string: " + text);
                     break;
                 case 3:
-                    String text = myInput;
+                    text = myInput;
                     String input16[] = split(text);
 
                     // key is hexadecimal
@@ -113,7 +122,7 @@ public class Input {
     }
 
     static String ConsoleInput(Scanner sc) {
-        System.out.print("\nEnter the text to be encrypted (Ctrl + D): ");
+        System.out.print("\nEnter the text to be encrypted: ");
         String str = sc.next();
 
         System.out.println("\nThe input string is : " + str);
