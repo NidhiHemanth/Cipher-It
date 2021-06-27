@@ -69,6 +69,9 @@ public class Input {
             switch (cipherOption) {
                 case 1:
                     // code for encrypting using Substitution cipher
+                    text = Substitution.encrypted(myInput);
+                    System.out.println("The encrypted string: " + text);
+                    writeToFile(text);
                     break;
                 case 2:
                     // code for encrypting using Caesar cipher
@@ -93,6 +96,8 @@ public class Input {
             switch (cipherOption) {
                 case 1:
                     // code for decrypting using Substitution cipher
+                    text = Substitution.decrypted(myInput);
+                    System.out.println("The decrypted string: " + text);
                     break;
                 case 2:
                     // code for decrypting using Substitution cipher

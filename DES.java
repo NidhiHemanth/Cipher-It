@@ -1,4 +1,3 @@
-import Ciphers.DES.*;
 import Ciphers.DES.HexEntries;
 
 class DES {
@@ -18,7 +17,7 @@ class DES {
         for(int i = 0; i < input16.length; i++) {
             // encrypt() returns hexadecimal 
             encryptedStr[i] = cipher.encrypt(input16[i], key);
-            // finalStr[i] = HexEntries.hexToAscii(encryptedStr[i]);
+            finalStr[i] = HexEntries.hexToAscii(encryptedStr[i]);
         }
         // System.out.println("Encrypted text : " + String.join("", finalStr));
         
@@ -37,7 +36,7 @@ class DES {
         for(int i = 0; i < encryptedStr.length; i++) {
             // decrypt() takes hexadecimal argument, returns hexadecimal
             decryptedStr[i] = cipher.decrypt(encryptedStr[i], key);
-            // finalStr[i] = HexEntries.hexToAscii(decryptedStr[i]);
+            finalStr[i] = HexEntries.hexToAscii(decryptedStr[i]);
         }
         // System.out.println("Decrypted text : " + String.join("", finalStr));
         
