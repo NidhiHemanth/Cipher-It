@@ -1,4 +1,4 @@
-import DES.*;
+import Ciphers.DES.*;
 
 public class OldDemo {
     public static void main(String[] args) {

@@ -1,4 +1,5 @@
-package DES;
+package Ciphers.DES;
+import Ciphers.Cipher;
 
 public class DES implements Cipher {
     Tokens constants = new Tokens();

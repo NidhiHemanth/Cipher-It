@@ -1,11 +1,13 @@
+package Ciphers.DES;
+
 // Java program generate a random AlphaNumeric String
 // using CharSet method
 
 import java.util.*;
 import java.nio.charset.*;
 
-class KeyGenerator {
-	static String getKey(int n)
+public class KeyGenerator {
+	public static String getKey(int n)
 	{
 		byte[] array = new byte[256];
 		new Random().nextBytes(array);

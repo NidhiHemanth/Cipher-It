@@ -1,4 +1,4 @@
-package DES;
+package Ciphers.DES;
 
 public class Tokens {
     // Initial Permutation Table
