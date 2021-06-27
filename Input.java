@@ -1,12 +1,17 @@
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.io.FileWriter;
 import java.io.*;
-import Ciphers.DES.*;
+import Ciphers.DES.HexEntries;
 
 public class Input {
     public static void main(String[] args) {
-        int option;
+        int option = -1;
+        int cipherOption = -1;
+        int todo = -1;
+
+        String myInput = "";
 
         Scanner sc = new Scanner(System.in);
 
@@ -14,51 +19,128 @@ public class Input {
         System.out.println("\t1) console");
         System.out.println("\t2) file input");
         System.out.println("\t3) exit");
-        System.out.print("\nEnter your choice : ");
+        System.out.print("Enter your choice : ");
 
-        try {
-            option = sc.nextInt();
+        option = intInput(sc);
 
-            switch (option) {
+        switch (option) {
+            case 1:
+                myInput = ConsoleInput(sc);
+                break;
+            case 2:
+                System.out.print("\nEnter the file name : ");
+                String file = sc.next();
+                myInput = FileInput(file);
+                break;
+            default:
+                System.out.println("Invalid input, exiting");
+        }
+
+        String key = "";
+
+        System.out.println("\nChoose which cipher do you want to use");
+        System.out.println("\t1) substitution cipher");
+        System.out.println("\t2) caesar cipher");
+        System.out.println("\t3) DES cipher");
+        System.out.println("\t4) exit");
+        System.out.print("Enter your choice : ");
+        
+        cipherOption = intInput(sc);
+
+        System.out.println("\nHold up, what do you want to do though?");
+        System.out.println("\t1) encrypt");
+        System.out.println("\t2) decrypt");
+        System.out.println("\t3) exit");
+        System.out.print("Enter your choice : ");
+        
+        todo = intInput(sc);
+
+        if(todo == 1) {
+            switch (cipherOption) {
                 case 1:
-                    ConsoleInput(sc);
                     break;
                 case 2:
-                    System.out.print("Enter the file name : ");
-                    String file = sc.next();
-                    FileInput(file);
+                    break;
+                case 3:
+                    String text = HexEntries.asciiToHex(myInput);
+                    // System.out.println("Splitting into 16 hexadecimal substrings:");
+                    String input16[] = split(text);
+                    text = DES.encrypted(input16);
+                    // System.out.println("The encrypted string, ascii : " + HexEntries.hexToAscii(text));
+
+                    writeToFile(HexEntries.hexToAscii(text));
+
+                    // System.out.println("The encrypted string, hexadecimal : " + text);
                     break;
                 default:
-                    System.out.println("Invalid input, exiting");
-            }
-        } catch (InputMismatchException e) {
-            System.out.println("Choose from only the given options");
+                    System.out.println("Invalid cipher input, exiting\n");
+                    System.exit(2);
+                }    
+            } else if (todo == 2) {
+                switch (cipherOption) {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        // System.out.println("Input, ascii = " + myInput);
+                        String text = HexEntries.asciiToHex(myInput);
+                        // System.out.println("Input, hexadecimal = " + text);
+                        // String text = myInput;
+                        String input16[] = split(text);
+                        
+                        // key is hexadecimal
+                        System.out.print("\nEnter key : ");
+                        key = sc.next();
+                        
+                        text = DES.decrypted(input16, key); 
+                        System.out.println("\nThe decrypted string is : " + HexEntries.hexToAscii(text));
+                        break;
+                    default:
+                        System.out.println("Invalid cipher input, exiting\n");
+                        System.exit(2);
+            }    
         }
 
-        System.out.println("\nThank you for the input\n");
+        System.out.println("\nThank you for using our application\n");
     }
 
-    static void ConsoleInput(Scanner sc) {
+    static String ConsoleInput(Scanner sc) {
         System.out.print("\nEnter the text to be encrypted (Ctrl + D): ");
-        String str = "";
+        String str = sc.next();
 
-        // sc.nextLine();
-        // str = sc.nextLine();
+        System.out.println("\nThe input string is : " + str);
 
-        while (sc.hasNextLine()) {
-            str += sc.nextLine();
-        }
-
-        System.out.println("\tThe input string is :");
-        System.out.println(str);
-
-        String text = HexEntries.asciiToHex(str);
-
-        System.out.println("Splitting into 16 hexadecimal substrings:");
-        split(text);
+        return str;
     }
 
-    static void FileInput(String fileName) {
+    static void writeToFile(String str) {
+        try {
+            FileWriter myWriter = new FileWriter("./test/output.txt");
+            myWriter.write(str);
+            myWriter.close();
+          } catch (IOException e) {
+            System.out.println("An error occurred while writing output to file.");
+            e.printStackTrace();
+          }
+
+    }
+
+    static int intInput(Scanner sc) {
+        int temp = -1;
+        try {
+            if (sc.hasNextInt())
+                temp = sc.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("\n\tChoose from only the given options, please!");
+        } catch (Exception e) {
+            System.out.println("\n\tUnknown error reported, check Input");
+        }
+
+        return temp;
+    } 
+
+    static String FileInput(String fileName) {
         String str = "";
 
         try {
@@ -71,78 +153,22 @@ public class Input {
             e.printStackTrace();
         }
 
-        System.out.println("\tThe input string is :");
-        System.out.println(str);
+        System.out.println("\nThe input string is :" + str);
 
-        String text = HexEntries.asciiToHex(str);
-
-        System.out.println("Splitting into 16 character substrings:");
-        split(text);
+        return str;
     }
 
-    static void split(String input) {
+    static String[] split(String input) {
         // input is hexadecimal
-
+        // splitting input into length of 16
+        
         String input16[] = input.split("(?<=\\G.{16})");   
         int n = input16.length;    
         if(input16[n-1].length() < 16) {
             input16[n-1] = String.format("%-" + 16 + "s", input16[n-1]).replace(' ', '0');
         }
         
-        String finalStr[] = new String[input16.length];
-        String encryptedStr[] = new String[input16.length];
-        String decryptedStr[] = new String[input16.length];
-
-        System.out.println(Arrays.toString(input16));   
-
-        // key is generated in hexadecimal 
-        String key = KeyGenerator.getKey(16);
-        System.out.println("Your key is : ");
-        System.out.println("\t" + key);
-
-        DES cipher = new DES();
-
-        System.out.println("Encryption:\n");
-        for(int i = 0; i < input16.length; i++) {
-            // encrypt() returns hexadecimal 
-            encryptedStr[i] = cipher.encrypt(input16[i], key);
-            // hexadecimal converted to ascii
-            finalStr[i] = HexEntries.hexToAscii(encryptedStr[i]);
-            // System.out.println("\nCipher Text: " + text.toUpperCase() + "\n");            
-        }
-        System.out.println("Encrypted text : " + String.join("", finalStr));
-        
-        System.out.println("Decryption\n");
-        for(int i = 0; i < encryptedStr.length; i++) {
-            // decrypt() takes hexadecimal argument
-            // returns hexadecimal
-            decryptedStr[i] = cipher.decrypt(encryptedStr[i], key);
-            finalStr[i] = HexEntries.hexToAscii(decryptedStr[i]);
-            // System.out.println("\nPlain Text: " + text.toUpperCase());
-        }
-        System.out.println("Decrypted text : " + String.join("", finalStr));
+        // System.out.println(Arrays.toString(input16));
+        return input16;   
     }
-}
-
-class HexEntries {
-    static String asciiToHex(String ascii) {
-        String hex = "";
-        for (int i = 0; i < ascii.length(); i++) {
-            char ch = ascii.charAt(i);
-            int in = (int)ch;
-            String part = Integer.toHexString(in);
-            hex += part;
-        }
-        return hex;
-    } 
-
-    static String hexToAscii(String hex) {
-        String ascii = "";
-         for (int i = 0; i < hex.length(); i += 2) {
-            String part = hex.substring(i, i + 2);
-            char ch = (char)Integer.parseInt(part, 16);
-            ascii = ascii + ch;
-        }
-       return ascii;  
-    } 
 }
