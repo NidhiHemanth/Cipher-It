@@ -18,11 +18,11 @@ class DES {
         for(int i = 0; i < input16.length; i++) {
             // encrypt() returns hexadecimal 
             encryptedStr[i] = cipher.encrypt(input16[i], key);
-            // hexadecimal converted to ascii
-            finalStr[i] = HexEntries.hexToAscii(encryptedStr[i]);
+            // finalStr[i] = HexEntries.hexToAscii(encryptedStr[i]);
         }
         // System.out.println("Encrypted text : " + String.join("", finalStr));
         
+        // returns hexadecimal
         return String.join("", encryptedStr);
     }
     
@@ -35,14 +35,13 @@ class DES {
         Ciphers.DES.DES cipher = new Ciphers.DES.DES();
         
         for(int i = 0; i < encryptedStr.length; i++) {
-            // decrypt() takes hexadecimal argument
-            // returns hexadecimal
+            // decrypt() takes hexadecimal argument, returns hexadecimal
             decryptedStr[i] = cipher.decrypt(encryptedStr[i], key);
-            // hexadecimal converted to ascii
-            finalStr[i] = HexEntries.hexToAscii(decryptedStr[i]);
+            // finalStr[i] = HexEntries.hexToAscii(decryptedStr[i]);
         }
         // System.out.println("Decrypted text : " + String.join("", finalStr));
         
+        // returns hexadecimal
         return String.join("", decryptedStr);
     }
 }

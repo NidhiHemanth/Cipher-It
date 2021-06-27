@@ -11,9 +11,12 @@ public class Input {
         int cipherOption = -1;
         int todo = -1;
 
+        String key = "";
         String myInput = "";
 
         Scanner sc = new Scanner(System.in);
+
+        /* =============================================== */
 
         System.out.println("Choose how you provide input");
         System.out.println("\t1) console");
@@ -36,7 +39,10 @@ public class Input {
                 System.out.println("Invalid input, exiting");
         }
 
-        String key = "";
+        // myInput stores ASCII input if "encryption"
+        // myInput stores HEXA input if "decryption"
+
+        /* =============================================== */
 
         System.out.println("\nChoose which cipher do you want to use");
         System.out.println("\t1) substitution cipher");
@@ -44,62 +50,63 @@ public class Input {
         System.out.println("\t3) DES cipher");
         System.out.println("\t4) exit");
         System.out.print("Enter your choice : ");
-        
+
         cipherOption = intInput(sc);
+
+        /* =============================================== */
 
         System.out.println("\nHold up, what do you want to do though?");
         System.out.println("\t1) encrypt");
         System.out.println("\t2) decrypt");
         System.out.println("\t3) exit");
         System.out.print("Enter your choice : ");
-        
+
         todo = intInput(sc);
 
-        if(todo == 1) {
+        /* =============================================== */
+
+        if (todo == 1) {
             switch (cipherOption) {
                 case 1:
+                    // code for encrypting using Substitution cipher
                     break;
                 case 2:
+                    // code for encrypting using Caesar cipher
                     break;
                 case 3:
                     String text = HexEntries.asciiToHex(myInput);
-                    // System.out.println("Splitting into 16 hexadecimal substrings:");
                     String input16[] = split(text);
                     text = DES.encrypted(input16);
-                    // System.out.println("The encrypted string, ascii : " + HexEntries.hexToAscii(text));
+                    System.out.println("The encrypted string (hexadecimal): " + text);
+                    writeToFile(text);
+                    break;
+                default:
+                    System.out.println("Invalid cipher choice, exiting\n");
+                    System.exit(2);
+            }
+        } else if (todo == 2) {
+            switch (cipherOption) {
+                case 1:
+                    // code for decrypting using Substitution cipher
+                    break;
+                case 2:
+                    // code for decrypting using Substitution cipher
+                    break;
+                case 3:
+                    String text = myInput;
+                    String input16[] = split(text);
 
-                    writeToFile(HexEntries.hexToAscii(text));
+                    // key is hexadecimal
+                    System.out.print("\nEnter key : ");
+                    key = sc.next();
 
-                    // System.out.println("The encrypted string, hexadecimal : " + text);
+                    text = DES.decrypted(input16, key);
+                    System.out.println("\nThe decrypted string is : " + HexEntries.hexToAscii(text));
                     break;
                 default:
                     System.out.println("Invalid cipher input, exiting\n");
                     System.exit(2);
-                }    
-            } else if (todo == 2) {
-                switch (cipherOption) {
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        // System.out.println("Input, ascii = " + myInput);
-                        String text = HexEntries.asciiToHex(myInput);
-                        // System.out.println("Input, hexadecimal = " + text);
-                        // String text = myInput;
-                        String input16[] = split(text);
-                        
-                        // key is hexadecimal
-                        System.out.print("\nEnter key : ");
-                        key = sc.next();
-                        
-                        text = DES.decrypted(input16, key); 
-                        System.out.println("\nThe decrypted string is : " + HexEntries.hexToAscii(text));
-                        break;
-                    default:
-                        System.out.println("Invalid cipher input, exiting\n");
-                        System.exit(2);
-            }    
+            }
         }
 
         System.out.println("\nThank you for using our application\n");
@@ -119,10 +126,10 @@ public class Input {
             FileWriter myWriter = new FileWriter("./test/output.txt");
             myWriter.write(str);
             myWriter.close();
-          } catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("An error occurred while writing output to file.");
             e.printStackTrace();
-          }
+        }
 
     }
 
@@ -136,9 +143,8 @@ public class Input {
         } catch (Exception e) {
             System.out.println("\n\tUnknown error reported, check Input");
         }
-
         return temp;
-    } 
+    }
 
     static String FileInput(String fileName) {
         String str = "";
@@ -154,21 +160,20 @@ public class Input {
         }
 
         System.out.println("\nThe input string is :" + str);
-
         return str;
     }
 
     static String[] split(String input) {
         // input is hexadecimal
         // splitting input into length of 16
-        
-        String input16[] = input.split("(?<=\\G.{16})");   
-        int n = input16.length;    
-        if(input16[n-1].length() < 16) {
-            input16[n-1] = String.format("%-" + 16 + "s", input16[n-1]).replace(' ', '0');
+
+        String input16[] = input.split("(?<=\\G.{16})");
+        int n = input16.length;
+        if (input16[n - 1].length() < 16) {
+            input16[n - 1] = String.format("%-" + 16 + "s", input16[n - 1]).replace(' ', '0');
         }
-        
+
         // System.out.println(Arrays.toString(input16));
-        return input16;   
+        return input16;
     }
 }
