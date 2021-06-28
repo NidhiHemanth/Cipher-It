@@ -79,7 +79,7 @@ public class Input {
                 case 2:
                     // code for encrypting using Caesar cipher
                     System.out.print("\nEnter the shift value: ");
-                    int shift = sc.nextInt();
+                    int shift = intInput(sc);
                     text = Caesar.encrypted(myInput, shift);
                     System.out.println("The encrypted string: " + text);
                     writeToFile(text);
@@ -105,7 +105,7 @@ public class Input {
                 case 2:
                     // code for decrypting using Substitution cipher
                     System.out.print("\nEnter the shift value: ");
-                    int shift = sc.nextInt();
+                    int shift = intInput(sc);
                     text = Caesar.decrypted(myInput, shift);
                     System.out.println("The decrypted string: " + text);
                     break;
@@ -116,7 +116,11 @@ public class Input {
                     // key is hexadecimal
                     System.out.print("\nEnter key : ");
                     key = sc.next();
-
+                    if (key.length() != 16) {
+                        System.out.println("Please recheck your key");
+                        break;
+                    }
+                    
                     text = DES.decrypted(input16, key);
                     System.out.println("\nThe decrypted string is : " + HexEntries.hexToAscii(text));
                     break;
@@ -130,8 +134,11 @@ public class Input {
     }
 
     static String ConsoleInput(Scanner sc) {
+        // Space words accepted
+
+        sc.nextLine();
         System.out.print("\nEnter the text : ");
-        String str = sc.next();
+        String str = sc.nextLine();
 
         System.out.println("\nThe input string is : " + str);
 
