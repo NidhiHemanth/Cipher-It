@@ -7,9 +7,10 @@ javac ./Ciphers/Subs/*.java
 javac ./Ciphers/Caesar.java
 javac ./Ciphers/DES.java
 javac ./Ciphers/Substitution.java
-javac Input.java
+# javac Index.java
+javac *.java
 
 echo "Successfully built all Bytecode"
 echo 
 
-java Input
+# java Index

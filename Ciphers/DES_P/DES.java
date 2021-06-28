@@ -46,8 +46,10 @@ public class DES implements Cipher {
         return keys;
     }
 
-    public String encrypt(String plainText, String key) {
+    public String encrypt(String ...str) {
         int i;
+        String plainText = str[0]; 
+        String key = str[1];
         // get round keys
         String keys[] = getKeys(key);
 
@@ -70,8 +72,10 @@ public class DES implements Cipher {
         return plainText;
     }
 
-    public String decrypt(String plainText, String key) {
+    public String decrypt(String ...str) {
         int i;
+        String plainText = str[0]; 
+        String key = str[1];
         // get round keys
         String keys[] = getKeys(key);
 

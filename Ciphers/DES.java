@@ -1,48 +1,78 @@
 package Ciphers;
 
+import Ciphers.DES_P.*;
 import Ciphers.DES_P.HexEntries;
 
 public class DES {
-    public static String encrypted(String input16[]) {
-        // input is array of length 16 plain hexadecimal strings
-        
-        String finalStr[] = new String[input16.length];
-        String encryptedStr[] = new String[input16.length];
+    public static String CryptedStr[];
 
-        // key is generated in hexadecimal of length 16
-        String key = Ciphers.DES_P.KeyGenerator.getKey(16);
-        System.out.println("\nYour key is : ");
-        System.out.println("\t" + key);
+    public static String Cryption(String input16[], int cryption, String... keys) {
+        // input is array of length 16 plain hexadecimal strings
+        String key;
+        String finalStr[] = new String[input16.length];
         
-        Ciphers.DES_P.DES cipher = new Ciphers.DES_P.DES();
-        
-        for(int i = 0; i < input16.length; i++) {
-            // encrypt() returns hexadecimal 
-            encryptedStr[i] = cipher.encrypt(input16[i], key);
-            finalStr[i] = HexEntries.hexToAscii(encryptedStr[i]);
+        CryptedStr = new String[input16.length];
+
+        if (cryption == 0) {
+            // key is generated in hexadecimal of length 16
+            key = Ciphers.DES_P.KeyGenerator.getKey(16);
+            System.out.println("\nYour key is : ");
+            System.out.println("\t" + key);
+        } else {
+            key = keys[0];
         }
-        // System.out.println("Encrypted text : " + String.join("", finalStr));
+
+        MultiThread A[] = new MultiThread[input16.length];
+        ThreadGroup Group = new ThreadGroup("CryptionParent");
+
+        try {
+
+            for (int i = 0; i < input16.length; i++) {
+                A[i] = new MultiThread(input16[i], i, key, Group, cryption);
+                A[i].start();
+            }
+
+            do {
+            } while (Group.activeCount() > 0);
+
+        } catch (Exception e) {
+            System.out.println("Main interrupted");
+        } 
         
         // returns hexadecimal
-        return String.join("", encryptedStr);
+        return String.join("", CryptedStr);
     }
-    
-    public static String decrypted(String encryptedStr[], String key) {
-        // input is array of length 16 encrypted hexadecimal strings
-        
-        String finalStr[] = new String[encryptedStr.length];
-        String decryptedStr[] = new String[encryptedStr.length];
-        
+
+}
+
+class MultiThread extends Thread {
+    int index;
+    String data;
+
+    String key;
+    int cryption;
+
+    MultiThread(String a, int i, String k, ThreadGroup G, int C) {
+
+        super(G, (a + i));
+
+        data = a;
+        index = i;
+        key = k;
+        cryption = C;
+
+    }
+
+    public void run() {
+
         Ciphers.DES_P.DES cipher = new Ciphers.DES_P.DES();
-        
-        for(int i = 0; i < encryptedStr.length; i++) {
-            // decrypt() takes hexadecimal argument, returns hexadecimal
-            decryptedStr[i] = cipher.decrypt(encryptedStr[i], key);
-            finalStr[i] = HexEntries.hexToAscii(decryptedStr[i]);
+        switch (cryption) {
+            case 0:
+                DES.CryptedStr[index] = cipher.encrypt(data, key);
+                break;
+            case 1:
+                DES.CryptedStr[index] = cipher.decrypt(data, key);
+                break;
         }
-        // System.out.println("Decrypted text : " + String.join("", finalStr));
-        
-        // returns hexadecimal
-        return String.join("", decryptedStr);
     }
 }

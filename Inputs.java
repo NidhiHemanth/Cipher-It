@@ -1,10 +1,9 @@
 public class Inputs extends javax.swing.JFrame {
-    
+
     public Inputs() {
         initComponents();
     }
 
-   
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
@@ -72,47 +71,39 @@ public class Inputs extends javax.swing.JFrame {
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(189, 189, 189)
-                .addComponent(file)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(manual))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-                            .addComponent(jLabel4))))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(file)
-                .addGap(41, 41, 41)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(manual)
-                .addContainerGap(97, Short.MAX_VALUE))
-        );
+        jPanel1Layout.setHorizontalGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                        jPanel1Layout.createSequentialGroup().addGap(189, 189, 189).addComponent(file)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createSequentialGroup().addGroup(jPanel1Layout
+                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup().addGap(39, 39, 39).addComponent(jLabel1,
+                                javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup().addGap(214, 214, 214).addComponent(jLabel5))
+                        .addGroup(jPanel1Layout.createSequentialGroup().addGap(154, 154, 154).addComponent(manual))
+                        .addGroup(jPanel1Layout.createSequentialGroup().addGap(24, 24, 24)
+                                .addGroup(jPanel1Layout
+                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 468,
+                                                Short.MAX_VALUE)
+                                        .addComponent(jLabel4))))
+                        .addContainerGap(38, Short.MAX_VALUE)));
+        jPanel1Layout
+                .setVerticalGroup(
+                        jPanel1Layout
+                                .createParallelGroup(
+                                        javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup().addGap(73, 73, 73)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(file).addGap(41, 41, 41).addComponent(jLabel5).addGap(18, 18, 18)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18).addComponent(manual).addContainerGap(97, Short.MAX_VALUE)));
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 590));
 
@@ -121,7 +112,8 @@ public class Inputs extends javax.swing.JFrame {
         bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 120, 140, 70));
 
         jLabel6.setFont(new java.awt.Font("Monospaced", 2, 12)); // NOI18N
-        jLabel6.setText("<html>DES Encryption : 1234<br>DES Decryption : The key you received <br>Caesar Encryption : The number you entered<br>Caesar Decryption : the number you entered<br>Substitution Encryption: Enter 1234 <br> Substitution Decryption : Enter 1234</html>  ");
+        jLabel6.setText(
+                "<html>DES Encryption : 1234<br>DES Decryption : The key you received <br>Caesar Encryption : The number you entered<br>Caesar Decryption : the number you entered<br>Substitution Encryption: Enter 1234 <br> Substitution Decryption : Enter 1234</html>  ");
         bg.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, 310, 200));
 
         key.setText("Your Key...");
@@ -147,49 +139,41 @@ public class Inputs extends javax.swing.JFrame {
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(bg,
+                javax.swing.GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE));
+        layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(bg,
+                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void manualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manualActionPerformed
-       CipherIT.getInput(2);
-       new Manual().setVisible(true);
-    }//GEN-LAST:event_manualActionPerformed
+    private void manualActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_manualActionPerformed
+        CipherIT.getInput(2);
+        new Manual().setVisible(true);
+    }// GEN-LAST:event_manualActionPerformed
 
-    private void fileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileActionPerformed
+    private void fileActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_fileActionPerformed
         CipherIT.getInput(1);
         javax.swing.JFileChooser FileExplorer = new javax.swing.JFileChooser();
         int response = FileExplorer.showOpenDialog(null);
-        if(response == FileExplorer.APPROVE_OPTION)
-        {
+        if (response == FileExplorer.APPROVE_OPTION) {
             String file = FileExplorer.getSelectedFile().getAbsolutePath();
-           
+
             CipherIT.getFile(file);
         }
-    }//GEN-LAST:event_fileActionPerformed
+    }// GEN-LAST:event_fileActionPerformed
 
-    private void goesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goesActionPerformed
-       if(CipherIT.Input!=-7 && !CipherIT.filepath.equals("") && !CipherIT.key.equals("")){
-        CipherIT.infoDisplay();
-       //Put the algorithm for the project here
-       dispose();
-       }
-    }//GEN-LAST:event_goesActionPerformed
+    private void goesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_goesActionPerformed
+        if (CipherIT.Input != -7 && !CipherIT.filepath.equals("") && !CipherIT.key.equals("")) {
 
-    private void keyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyKeyReleased
+            CipherIT.Execute();
+            dispose();
+        }
+    }// GEN-LAST:event_goesActionPerformed
+
+    private void keyKeyReleased(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_keyKeyReleased
         CipherIT.getKey(key.getText());
-    }//GEN-LAST:event_keyKeyReleased
-
-    
- 
+    }// GEN-LAST:event_keyKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;

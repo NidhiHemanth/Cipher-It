@@ -42,7 +42,8 @@ public class CaesarCipher implements Cipher {
         }
     }
     
-    public String encrypt(String str, String shift) {
+    public String encrypt(String ...text) {
+        String str = text[0];
         char newStr[] = new char[str.length()];
         
         // System.out.println(map.get('a'));
@@ -60,7 +61,8 @@ public class CaesarCipher implements Cipher {
         return new String(newStr);
     }
     
-    public String decrypt(String str, String key) {
+    public String decrypt(String ...text) {
+        String str = text[0];
         char newStr[] = new char[str.length()];
         
         // System.out.println(map.getKey(str.charAt(0)));

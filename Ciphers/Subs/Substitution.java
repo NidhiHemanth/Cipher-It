@@ -34,7 +34,8 @@ public class Substitution implements Cipher {
         }
     }
 
-    public String encrypt(String plainText, String key) {
+    public String encrypt(String ...text) {
+        String plainText = text[0];
         Hash_it(0, 3);
         String encrypted = "";
         for (int i = 0; i < plainText.length(); i++) {
@@ -47,7 +48,8 @@ public class Substitution implements Cipher {
         return encrypted;
     }
 
-    public String decrypt(String plainText, String key) {
+    public String decrypt(String ...text) {
+        String plainText = text[0];
         Hash_it(3, 0);
         String decrypted = "";
         for (int i = 0; i < plainText.length(); i++) {

@@ -11,11 +11,11 @@ public class Tester {
         System.out.print("\nEnter the text to be encrypted : \n\t");
         String text = sc.nextLine();
 
-        String encrypted = cipher.encrypt(text, "key");
+        String encrypted = cipher.encrypt(text);
         System.out.println("\n    Encrypted text : ");
         System.out.println("    \t" + encrypted);
 
-        String decrypted = cipher.decrypt(encrypted, "key");
+        String decrypted = cipher.decrypt(encrypted);
         System.out.println("\n    Decrypted text : ");
         System.out.println("    \t" + decrypted);
 

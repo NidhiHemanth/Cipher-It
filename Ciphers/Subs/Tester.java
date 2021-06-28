@@ -14,11 +14,11 @@ public class Tester {
 
         switch (ch) {
             case 1:
-                text = A.encrypt("HELLO", "");
+                text = A.encrypt("HELLO");
                 System.out.println(text);
                 break;
             case 2:
-                text = A.decrypt("IFMMP", "");
+                text = A.decrypt("IFMMP");
                 System.out.println(text);
                 break;
             default:

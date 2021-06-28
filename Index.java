@@ -7,7 +7,7 @@ import Ciphers.Caesar;
 import Ciphers.DES;
 import Ciphers.Substitution;
 
-public class Input {
+public class Index {
     public static void main(String[] args) {
         int option = -1;
         int cipherOption = -1;
@@ -87,7 +87,7 @@ public class Input {
                 case 3:
                     text = HexEntries.asciiToHex(myInput);
                     String input16[] = split(text);
-                    text = DES.encrypted(input16);
+                    text = DES.Cryption(input16, 0);
                     System.out.println("The encrypted string (hexadecimal): " + text);
                     writeToFile(text);
                     break;
@@ -121,7 +121,7 @@ public class Input {
                         break;
                     }
                     
-                    text = DES.decrypted(input16, key);
+                    text = DES.Cryption(input16, 1, key);
                     System.out.println("\nThe decrypted string is : " + HexEntries.hexToAscii(text));
                     break;
                 default:
