@@ -17,7 +17,7 @@ public class CaesarCipher implements Cipher {
         N = alphabets.length();
         
         createMap();
-        // printMap();
+        printMap();
     }
 
     private void createMap() {
@@ -26,12 +26,19 @@ public class CaesarCipher implements Cipher {
                 map.put(ch[i], ch[(i + key) % N]);
             }           
         }
+        for(int i = 0; i < N; i++) {
+            if(Character.isAlphabetic(Character.toUpperCase(ch[i]))) {
+                map.put(Character.toUpperCase(ch[i]), Character.toUpperCase(ch[(i + key) % N]));
+            }           
+        }
     }
 
     void printMap() {
         // System.out.println(map);
-        for(int i = 0; i < N; i++) {
-            System.out.println(ch[i] + " : " + ch[(i + key) % N]);
+        for (Character name : map.keySet()) {
+            String key = name.toString();
+            String value = map.get(name).toString();
+            System.out.println(key + " : " + value);
         }
     }
     
@@ -45,6 +52,8 @@ public class CaesarCipher implements Cipher {
                 newStr[i] = (char) map.get(str.charAt(i));
             } else if (str.charAt(i) == ' ') {
                 newStr[i] = ' ';
+            } else {
+                newStr[i] = str.charAt(i);
             }
         }
         
@@ -61,6 +70,8 @@ public class CaesarCipher implements Cipher {
                 newStr[i] = (char) map.getKey(str.charAt(i));
             } else if (str.charAt(i) == ' ') {
                 newStr[i] = ' ';
+            } else {
+                newStr[i] = str.charAt(i);
             }
         }
 
