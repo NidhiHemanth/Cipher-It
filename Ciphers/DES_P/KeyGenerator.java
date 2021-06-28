@@ -1,4 +1,4 @@
-package Ciphers.DES;
+package Ciphers.DES_P;
 
 // Java program generate a random AlphaNumeric String
 // using CharSet method

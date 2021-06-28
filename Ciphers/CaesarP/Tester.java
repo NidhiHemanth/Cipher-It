@@ -1,4 +1,4 @@
-package Ciphers.Caesar;
+package Ciphers.CaesarP;
 
 import java.util.Scanner;
 

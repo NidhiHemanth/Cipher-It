@@ -1,4 +1,4 @@
-package Ciphers.DES;
+package Ciphers.DES_P;
 
 public class Parser {
     Tokens constants = new Tokens();

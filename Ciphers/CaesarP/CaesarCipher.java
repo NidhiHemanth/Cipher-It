@@ -1,4 +1,4 @@
-package Ciphers.Caesar;
+package Ciphers.CaesarP;
 
 import java.util.HashMap;
 import Ciphers.Cipher;
@@ -17,7 +17,7 @@ public class CaesarCipher implements Cipher {
         N = alphabets.length();
         
         createMap();
-        printMap();
+        // printMap();
     }
 
     private void createMap() {

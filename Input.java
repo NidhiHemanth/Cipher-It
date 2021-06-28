@@ -2,7 +2,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.*;
-import Ciphers.DES.HexEntries;
+import Ciphers.DES_P.HexEntries;
+import Ciphers.Caesar;
+import Ciphers.DES;
+import Ciphers.Substitution;
 
 public class Input {
     public static void main(String[] args) {
@@ -127,7 +130,7 @@ public class Input {
     }
 
     static String ConsoleInput(Scanner sc) {
-        System.out.print("\nEnter the text to be encrypted: ");
+        System.out.print("\nEnter the text : ");
         String str = sc.next();
 
         System.out.println("\nThe input string is : " + str);

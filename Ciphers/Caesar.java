@@ -1,15 +1,17 @@
-import Ciphers.Caesar.*;
+package Ciphers;
+
+import Ciphers.CaesarP.*;
 
 public class Caesar {
     
-    static String encrypted(String text, int shift) {
+    public static String encrypted(String text, int shift) {
         CaesarCipher myCipher = new CaesarCipher(shift);
         String encrpyted;
         encrpyted = myCipher.encrypt(text, "");
         return encrpyted;
     }
     
-    static String decrypted(String encrypted, int shift) {
+    public static String decrypted(String encrypted, int shift) {
         CaesarCipher myCipher = new CaesarCipher(shift);
         String decrypted;
         decrypted = myCipher.decrypt(encrypted, "");

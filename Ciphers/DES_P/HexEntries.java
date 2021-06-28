@@ -1,4 +1,4 @@
-package Ciphers.DES;
+package Ciphers.DES_P;
 
 public class HexEntries {
     public static String asciiToHex(String ascii) {

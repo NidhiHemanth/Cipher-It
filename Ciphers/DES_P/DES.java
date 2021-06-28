@@ -1,4 +1,4 @@
-package Ciphers.DES;
+package Ciphers.DES_P;
 import Ciphers.Cipher;
 
 public class DES implements Cipher {
