@@ -165,8 +165,9 @@ public class Inputs extends javax.swing.JFrame {
 
     private void goesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_goesActionPerformed
         if (CipherIT.Input != -7 && !CipherIT.filepath.equals("") && !CipherIT.key.equals("")) {
-
             CipherIT.Execute();
+            new OutputScreen().setVisible(true);
+
             dispose();
         }
     }// GEN-LAST:event_goesActionPerformed
@@ -190,4 +191,4 @@ public class Inputs extends javax.swing.JFrame {
     private javax.swing.JTextField key;
     private javax.swing.JRadioButton manual;
     // End of variables declaration//GEN-END:variables
-}
+}                                                                                                                                                                                                                                                                                                   

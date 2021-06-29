@@ -19,6 +19,8 @@ public class CipherIT {
     
     static String key;
     static String filepath;
+    static String CryptedOutput;
+    static String OutputFile = "./test/output.txt";
 
     static void getAlgorithm(int a) {
         Algorithm = a;
@@ -47,22 +49,22 @@ public class CipherIT {
                 case 1:
                     String text = HexEntries.asciiToHex(filepath);
                     String input16[] = split(text);
-                    text = DES.Cryption(input16, 0);
-                    System.out.println("The encrypted string (hexadecimal): " + text);
-                    writeToFile(text);
+                    CryptedOutput = DES.Cryption(input16, 0);
+                    System.out.println("The encrypted string (hexadecimal): " + CryptedOutput);
+                    writeToFile(CryptedOutput);
                     break;
                 case 2:
                     // code for encrypting using Caesar cipher
                     int shift = Integer.parseInt(key);
-                    text = Caesar.encrypted(filepath, shift);
-                    System.out.println("The encrypted string : " + text);
-                    writeToFile(text);
+                    CryptedOutput = Caesar.encrypted(filepath, shift);
+                    System.out.println("The encrypted string : " + CryptedOutput);
+                    writeToFile(CryptedOutput);
                     break;
                 case 3:
                     // code for encrypting using Substitution cipher
-                    text = Substitution.encrypted(filepath);
-                    System.out.println("The encrypted string : " + text);
-                    writeToFile(text);
+                    CryptedOutput = Substitution.encrypted(filepath);
+                    System.out.println("The encrypted string : " + CryptedOutput);
+                    writeToFile(CryptedOutput);
                     break;
             }
         } else {
@@ -72,18 +74,22 @@ public class CipherIT {
                     String input16[] = split(text);
 
                     text = DES.Cryption(input16, 1, key);
-                    System.out.println("\nThe decrypted string is : " + HexEntries.hexToAscii(text));
+                    CryptedOutput = HexEntries.hexToAscii(text);
+                    System.out.println("\nThe decrypted string is : " + CryptedOutput);
+                    writeToFile(CryptedOutput);
                     break;
                 case 2:
                     // code for decrypting using Substitution cipher
-                    text = Substitution.decrypted(filepath);
-                    System.out.println("The decrypted string: " + text);
+                    CryptedOutput = Substitution.decrypted(filepath);
+                    System.out.println("The decrypted string: " + CryptedOutput);
+                    writeToFile(CryptedOutput);
                     break;
                 case 3:
                     // code for decrypting using Substitution cipher
                     int shift = Integer.parseInt(key);
-                    text = Caesar.decrypted(filepath, shift);
-                    System.out.println("The decrypted string: " + text);
+                    CryptedOutput = Caesar.decrypted(filepath, shift);
+                    System.out.println("The decrypted string: " + CryptedOutput);
+                    writeToFile(CryptedOutput);
                     break;
             }
         }
@@ -91,7 +97,7 @@ public class CipherIT {
 
     static void writeToFile(String str) {
         try {
-            FileWriter myWriter = new FileWriter("./test/output.txt");
+            FileWriter myWriter = new FileWriter(OutputFile);
             myWriter.write(str);
             myWriter.close();
         } catch (IOException e) {
