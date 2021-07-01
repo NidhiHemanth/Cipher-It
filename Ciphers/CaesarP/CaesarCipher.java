@@ -23,12 +23,20 @@ public class CaesarCipher implements Cipher {
     private void createMap() {
         for(int i = 0; i < N; i++) {
             if(Character.isAlphabetic(ch[i])) {
-                map.put(ch[i], ch[(i + key) % N]);
+                if((key <= 0) && (i+key < 0)) {
+                    map.put(ch[i], ch[(i + key + N) % N]);
+                } else {
+                    map.put(ch[i], ch[(i + key) % N]);
+                }
             }           
         }
         for(int i = 0; i < N; i++) {
             if(Character.isAlphabetic(Character.toUpperCase(ch[i]))) {
-                map.put(Character.toUpperCase(ch[i]), Character.toUpperCase(ch[(i + key) % N]));
+                if((key <= 0) && (i+key < 0)) {
+                    map.put(Character.toUpperCase(ch[i]), Character.toUpperCase(ch[(i + key + N) % N]));
+                } else {
+                    map.put(Character.toUpperCase(ch[i]), Character.toUpperCase(ch[(i + key) % N]));
+                }
             }           
         }
     }
