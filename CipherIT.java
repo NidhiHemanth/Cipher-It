@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.*;
 import Ciphers.DES_P.HexEntries;
-import Ciphers.DES;
 import Ciphers.Substitution;
 import Ciphers.Caesar;
 

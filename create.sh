@@ -5,7 +5,6 @@ javac ./Ciphers/CaesarP/*.java
 javac ./Ciphers/DES_P/*.java
 javac ./Ciphers/Subs/*.java
 javac ./Ciphers/Caesar.java
-javac ./Ciphers/DES.java
 javac ./Ciphers/Substitution.java
 # javac Index.java
 javac *.java

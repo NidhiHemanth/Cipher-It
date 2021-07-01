@@ -1,4 +1,4 @@
-package Ciphers;
+import javax.crypto.Cipher;
 
 import Ciphers.DES_P.*;
 import Ciphers.DES_P.HexEntries;
@@ -18,6 +18,7 @@ public class DES {
             key = Ciphers.DES_P.KeyGenerator.getKey(16);
             System.out.println("\nYour key is : ");
             System.out.println("\t" + key);
+            CipherIT.key = key; 
         } else {
             key = keys[0];
         }
