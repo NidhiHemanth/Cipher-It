@@ -12,7 +12,9 @@ public class Manual extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         ManualText = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+       setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+       setResizable(false);
+
 
         jPanel1.setBackground(new java.awt.Color(231, 63, 134));
 

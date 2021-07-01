@@ -30,6 +30,7 @@ public class FirstScreen extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -179,7 +180,7 @@ public class FirstScreen extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("<html><center>Project Description!<br> u can use html to format the label T.T</center></html>");
+        jLabel7.setText("<html><center>[ProjDesc]!<br> u can use html to format the label T.T</center></html>");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
