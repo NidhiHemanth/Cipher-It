@@ -184,7 +184,7 @@ public class Index {
         }
 
         System.out.println("\nThe input string is :" + str);
-        return str;
+        return str.replaceAll("\n", " ");
     }
 
     static String[] split(String input) {

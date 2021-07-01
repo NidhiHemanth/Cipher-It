@@ -80,14 +80,14 @@ public class CipherIT {
                     break;
                 case 2:
                     // code for decrypting using Substitution cipher
-                    CryptedOutput = Substitution.decrypted(filepath);
+                    int shift = Integer.parseInt(key);
+                    CryptedOutput = Caesar.decrypted(filepath, shift);
                     System.out.println("The decrypted string: " + CryptedOutput);
                     writeToFile(CryptedOutput);
                     break;
                 case 3:
                     // code for decrypting using Substitution cipher
-                    int shift = Integer.parseInt(key);
-                    CryptedOutput = Caesar.decrypted(filepath, shift);
+                    CryptedOutput = Substitution.decrypted(filepath);
                     System.out.println("The decrypted string: " + CryptedOutput);
                     writeToFile(CryptedOutput);
                     break;
