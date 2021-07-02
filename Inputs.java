@@ -164,7 +164,7 @@ public class Inputs extends javax.swing.JFrame {
     }// GEN-LAST:event_fileActionPerformed
 
     private void goesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_goesActionPerformed
-        if (CipherIT.Input != -7 && !CipherIT.filepath.equals("") && !CipherIT.key.equals("")) {
+        if (CipherIT.Input != -7 && !CipherIT.filepath.equals("") && CipherIT.keyValid == 0) {
             CipherIT.Execute();
             new OutputScreen().setVisible(true);
 
@@ -173,7 +173,23 @@ public class Inputs extends javax.swing.JFrame {
     }// GEN-LAST:event_goesActionPerformed
 
     private void keyKeyReleased(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_keyKeyReleased
-        CipherIT.getKey(key.getText());
+        
+        try
+        {
+         if(CipherIT.Algorithm == 2)
+         {
+          int x = Integer.parseInt(key.getText());
+          if(x>25 || x<1)throw new NumberFormatException("Rejection T.T");
+          }
+          CipherIT.getKey(key.getText());
+          CipherIT.keyValid = 0;
+        }
+        catch(NumberFormatException x)
+        {
+         CipherIT.keyValid = -7;
+         System.out.println("Caesar requires a number");
+        }
+        
     }// GEN-LAST:event_keyKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

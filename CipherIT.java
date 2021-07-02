@@ -16,10 +16,11 @@ public class CipherIT {
     static int Input = -7;
     // File = 1; Manual = 2
     
-    static String key;
+    static String key = "default";
     static String inputText;
     static String filepath;
     static String CryptedOutput;
+    static int keyValid = -7;
     static String OutputFile = "./test/output.txt";
 
     static void getAlgorithm(int a) {
@@ -68,6 +69,7 @@ public class CipherIT {
                     break;
                 case 3:
                     // code for encrypting using Substitution cipher
+                    key = "No key required for substitution";
                     CryptedOutput = Substitution.encrypted(inputText);
                     System.out.println("The encrypted string : " + CryptedOutput);
                     writeToFile(CryptedOutput);
@@ -93,6 +95,7 @@ public class CipherIT {
                     break;
                 case 3:
                     // code for decrypting using Substitution cipher
+                    key = "No key required for substitution";
                     CryptedOutput = Substitution.decrypted(inputText);
                     System.out.println("The decrypted string: " + CryptedOutput);
                     writeToFile(CryptedOutput);
