@@ -5,7 +5,7 @@ public class OutputScreen extends javax.swing.JFrame {
     }
  
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+                          
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -18,46 +18,46 @@ public class OutputScreen extends javax.swing.JFrame {
         keys = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-         setResizable(false);
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(231, 63, 134));
+        jPanel1.setBackground(new java.awt.Color(231, 63, 124));
 
-        jLabel1.setBackground(new java.awt.Color(231, 63, 134));
-        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(231, 63, 124));
+        jLabel1.setFont(new java.awt.Font("Monospaced", 1, 30)); 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Thank you for using our application!");
 
-        CryptedTitle.setBackground(new java.awt.Color(231, 63, 134));
-        CryptedTitle.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
+        CryptedTitle.setBackground(new java.awt.Color(231, 63, 124));
+        CryptedTitle.setFont(new java.awt.Font("Monospaced", 1, 18)); 
         CryptedTitle.setForeground(new java.awt.Color(255, 255, 255));
         CryptedTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CryptedTitle.setText("Your Result!");
+        CryptedTitle.setText("Your Encrypted text");
 
-        jLabel3.setBackground(new java.awt.Color(231, 63, 134));
-        jLabel3.setFont(new java.awt.Font("Monospaced", 3, 18)); // NOI18N
+        jLabel3.setBackground(new java.awt.Color(231, 63, 124));
+        jLabel3.setFont(new java.awt.Font("Monospaced", 1, 18)); 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Your Key!");
+        jLabel3.setText("Your Key");
 
-        OutputFile.setBackground(new java.awt.Color(231, 63, 134));
-        OutputFile.setFont(new java.awt.Font("Monospaced", 3, 12)); // NOI18N
+        OutputFile.setBackground(new java.awt.Color(231, 63, 124));
+        OutputFile.setFont(new java.awt.Font("Consolas", 3, 14)); 
         OutputFile.setForeground(new java.awt.Color(255, 255, 255));
         OutputFile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OutputFile.setText("You can find your output file at: "+CipherIT.OutputFile);
 
-        OUTPUTC.setBackground(new java.awt.Color(231, 63, 134));
-        OUTPUTC.setLineWrap(true);
+        OUTPUTC.setBackground(new java.awt.Color(231, 63, 124));
         OUTPUTC.setColumns(20);
-        OUTPUTC.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        OUTPUTC.setFont(new java.awt.Font("Monospaced", 0, 12)); 
         OUTPUTC.setForeground(new java.awt.Color(255, 255, 255));
+        OUTPUTC.setLineWrap(true);
         OUTPUTC.setRows(5);
         OUTPUTC.setText(CipherIT.CryptedOutput);
         OUTPUTC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jScrollPane1.setViewportView(OUTPUTC);
 
-        keys.setBackground(new java.awt.Color(231, 63, 134));
-        keys.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
+        keys.setBackground(new java.awt.Color(231, 63, 124));
+        keys.setFont(new java.awt.Font("Monospaced", 1, 12)); 
         keys.setForeground(new java.awt.Color(255, 255, 255));
         keys.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         keys.setText(CipherIT.key);
@@ -67,42 +67,37 @@ public class OutputScreen extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(180, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
-                            .addComponent(OutputFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(179, 179, 179))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
-                            .addComponent(keys))
-                        .addGap(169, 169, 169))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(207, 207, 207)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CryptedTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(keys, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(OutputFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CryptedTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(101, 101, 101))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(OutputFile)
                 .addGap(30, 30, 30)
                 .addComponent(CryptedTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addGap(0, 0, 0)
                 .addComponent(keys, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,8 +114,7 @@ public class OutputScreen extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
-    // Variables declaration - do not modify                     
+    }                                       
     private javax.swing.JLabel CryptedTitle;
     private javax.swing.JTextArea OUTPUTC;
     private javax.swing.JLabel OutputFile;
@@ -129,5 +123,5 @@ public class OutputScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField keys;
-    // End of variables declaration                   
+                    
 }
