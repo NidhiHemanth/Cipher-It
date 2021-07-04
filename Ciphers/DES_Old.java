@@ -1,5 +1,6 @@
 package Ciphers;
 
+// DES algorithm without Mulithreading
 import Ciphers.DES_P.HexEntries;
 
 public class DES_Old {
