@@ -8,7 +8,6 @@ A Java based apllication which encrypts and decrypts file and text input using t
 * [Setup](#setup)
 * [Usage](#usage)
 * [Project Status](#project-status)
-* [Room for Improvement](#room-for-improvement)
 * [Contact](#contact)
 <!-- * [License](#license) -->
 
@@ -30,10 +29,8 @@ List the ready features here:
 
 
 ## Setup
-- Method 1: clone repo and click on jar file
-- Method 2: clone repo and 
-          - build and run FirstScreen.java for the GUI
-          - build and run Index.java for the console input
+- Method 1: Clone repo and click on jar file
+- Method 2: Clone repo. Build and run FirstScreen.java for the GUI or Build and run Index.java for the console input
 
 
 ## Usage
