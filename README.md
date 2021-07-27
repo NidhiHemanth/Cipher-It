@@ -30,10 +30,10 @@ List the ready features here:
 
 
 ## Setup
-Method 1: clone repo and click on jar file
-Method 2: clone repo and 
-          -build and run FirstScreen.java for the GUI
-          -build and run Index.java for the console input
+- Method 1: clone repo and click on jar file
+- Method 2: clone repo and 
+          - build and run FirstScreen.java for the GUI
+          - build and run Index.java for the console input
 
 
 ## Usage
@@ -46,11 +46,6 @@ Provide various use cases and code examples here.
 Project is Complete
 
 
-## Room for Improvement
-Substitution cipher could take input for the substitution code file
-
-
-
 ## Contact
-Created by Nidhi Hemanth [nidhih.is19@bmsce.ac.in] and Meghana Rathanraj [meghanarathanraj.is19@bmsce.ac.in] feel free to contact us
+Created by Nidhi Hemanth [nidhih.is19@bmsce.ac.in] and Meghana Rathanraj [meghanarathanraj.is19@bmsce.ac.in] feel free to contact us!
 
