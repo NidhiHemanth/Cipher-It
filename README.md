@@ -31,7 +31,6 @@ List the ready features here:
 
 ## Setup
 What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-
 Proceed to describe how to install / setup one's local environment / get started with the project.
 
 
@@ -39,7 +38,6 @@ Proceed to describe how to install / setup one's local environment / get started
 How does one go about using it?
 Provide various use cases and code examples here.
 
-`write-your-code-here`
 
 
 ## Project Status
@@ -47,13 +45,11 @@ Project is Complete
 
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
 Room for improvement:
 - Substitution cipher could take input for the substitution code file
 
 
 
 ## Contact
-Created by Nidhi Hemanth [nidhih.is19@bmsce.ac.in] and Meghana Rathanraj [meghanarathanraj.is19@bmsce.ac.in] feel free to contact me!
+Created by Nidhi Hemanth [nidhih.is19@bmsce.ac.in] and Meghana Rathanraj [meghanarathanraj.is19@bmsce.ac.in] feel free to contact us
 
