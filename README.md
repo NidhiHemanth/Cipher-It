@@ -30,8 +30,10 @@ List the ready features here:
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-Proceed to describe how to install / setup one's local environment / get started with the project.
+Method 1: clone repo and click on jar file
+Method 2: clone repo and 
+          -build and run FirstScreen.java for the GUI
+          -build and run Index.java for the console input
 
 
 ## Usage
@@ -45,8 +47,7 @@ Project is Complete
 
 
 ## Room for Improvement
-Room for improvement:
-- Substitution cipher could take input for the substitution code file
+Substitution cipher could take input for the substitution code file
 
 
 
