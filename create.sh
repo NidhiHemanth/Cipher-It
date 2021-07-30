@@ -13,3 +13,4 @@ echo "Successfully built all Bytecode"
 echo 
 
 # java Index
+# java -cp CipherIt.jar FirstScreen
